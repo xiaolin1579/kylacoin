@@ -898,9 +898,8 @@ static RPCHelpMan getblocktemplate()
     result.pushKV("coinbasevalue", (int64_t)pblock->vtx[0]->vout[0].nValue);
 
     UniValue devreward(UniValue::VOBJ);
-    devreward.pushKV("payee", "kc1qxc642tnp78q79d08lphztm8ey8c0l7tn5tnge4");
-    devreward.pushKV("scriptpubkey", "00143635552e61f1c1e2b5e7f86e25ecf921f0fff973");
     devreward.pushKV("value", (int64_t)pblock->vtx[0]->vout[1].nValue);
+    devreward.pushKV("scriptpubkey", "00143635552e61f1c1e2b5e7f86e25ecf921f0fff973");
     result.pushKV("coinbasedevreward", devreward);
 
     result.pushKV("longpollid", active_chain.Tip()->GetBlockHash().GetHex() + ToString(nTransactionsUpdatedLast));
